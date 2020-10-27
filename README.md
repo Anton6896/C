@@ -2,4 +2,6 @@
 Learn C 
 
 
-gcc for compiling and running hte code 
+for compiling and running hte code 
+gcc -o name.exe file.c
+

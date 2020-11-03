@@ -24,13 +24,13 @@ int main()
     {
         red,
         yellow,
-        //  can explicit mark as 10
+        //  can explicit set as 10
         blue = 10
     };
     enum primaryColor myColor1, myColor2;
 
+    // myColor2  = green; can't use this !
     myColor1 = blue;
-    // myColor2  = green; cant use this !
 
     // this will give number as position in the list or explicit
     printf("enum position %d  \n", myColor1);

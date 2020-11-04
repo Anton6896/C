@@ -6,6 +6,8 @@ int main() {
     int position = 2;
     int arr[30] = {2, 3};
 
+    printf("find all prime from 100:\n");
+
     // skip all even num
     for (int i = 5; i < count; i += 2) {
         // check if prime

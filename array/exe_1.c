@@ -3,12 +3,13 @@
 
 int main() {
     int count = 100;
-    int position = 3;
-    int arr[30] = {1, 2, 3};
+    int position = 2;
+    int arr[30] = {2, 3};
 
-    for (int i = 5; i < count; i++) {
-        // check if  : (num % i != 0) ? add to list : pass
-        int k = -1;
+    // skip all even num
+    for (int i = 5; i < count; i += 2) {
+        // check if prime
+        int k = 1;
         for (int j = i - 1; j > 1; j--) {
             k = i % j;
             if (k == 0) {  // found not a prime
@@ -16,7 +17,8 @@ int main() {
             };
         };
 
-        if (k != 0) {
+        // add prime to arr ( k = 0 = false)
+        if (k) {
             arr[position] = i;
             position++;
         };

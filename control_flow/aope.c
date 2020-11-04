@@ -25,16 +25,15 @@ int main() {
         count++;
 
         if (my_guess == guess_me) {
-            printf("great job your guess it , num is %i , you try %i rimes. \n", guess_me, count);
+            printf("great job your guess it , num is %i , you try %i time%s. \n", guess_me, count, count == 1 ? "" : "s");
             in_game = false;
         } else if (my_guess == -1) {
             printf(" tnx for the game .\n ");
             in_game = false;
-        } else if (my_guess > guess_me) {
-            printf(" your guess is bigger");
-        } else if (my_guess < guess_me) {
-            printf(" your guess is lower");
         }
+        
+        printf("%s", my_guess > guess_me ? "your guess is bigger" : "your guess is lower");
+
     } while (in_game);
     return 0;
 }

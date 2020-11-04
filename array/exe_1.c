@@ -11,7 +11,7 @@ int main() {
         int k = -1;
         for (int j = i - 1; j > 1; j--) {
             k = i % j;
-            if (k == 0) {
+            if (k == 0) {  // found not a prime
                 break;
             };
         };

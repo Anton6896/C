@@ -21,18 +21,19 @@ int main() {
     do {
         printf("\nenter number or -1 : ");
         scanf("%d", &my_guess);
-        printf("\n");
         count++;
 
         if (my_guess == guess_me) {
-            printf("great job your guess it , num is %i , you try %i time%s. \n", guess_me, count, count == 1 ? "" : "s");
+            printf("\ngreat job your guess it , num is %i , you try %i time%s.",
+                   guess_me,
+                   count, count == 1 ? "" : "s");
             in_game = false;
         } else if (my_guess == -1) {
             printf(" tnx for the game .\n ");
             in_game = false;
         }
-        
-        printf("%s", my_guess > guess_me ? "your guess is bigger" : "your guess is lower");
+
+        printf("%s", my_guess > guess_me ? "\nyour guess is bigger" : "\nyour guess is lower");
 
     } while (in_game);
     return 0;

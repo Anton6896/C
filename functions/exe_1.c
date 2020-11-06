@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,27 +58,31 @@ void absolute_number() {
 };
 
 float get_sqrt_util(float num) {
-    // jet two closest sqrt from the target number
-    float close_from_top = num - 1;
-    float close_from_button = num + 1;
+    // link to algorithm
+    // http://www.math.com/school/subject1/lessons/S1U1L9DP.html
 
-    for (float i = 2, j = num; i < num; i++, j--) {
-        while (close_from_top < num) {
-            close_from_top = i * i;
-        };
-        while (close_from_button > num) {
-            close_from_button = j * j;
-        };
+    int bottom_index = 0;
+    int over = 0;
+
+    while (over < num) {
+        // return upper edge
+        bottom_index++;
+        over = bottom_index * bottom_index;
     };
-    printf("bottom %f , top %f", close_from_button, close_from_top);
+    // -1 for lower edge (lower minimum root)
+    bottom_index = bottom_index - 1;
 
-    return 0.0f;
+    // for more accurate calculation make this step couple times
+    float result = ((num / bottom_index) + bottom_index) / 2;
+    result = ((num / result) + result) / 2;
+
+    return result;
 };
 
 void get_sqrt() {
     float num;
     printf("\nenter a number : ");
     scanf("%f", &num);
-    
-    printf("\nsqrt of %.2f is : %.2f", num, get_sqrt_util(num));
+
+    printf("sqrt of %.2f is : %.2f\n", num, get_sqrt_util(num));
 };

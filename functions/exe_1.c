@@ -84,5 +84,10 @@ void get_sqrt() {
     printf("\nenter a number : ");
     scanf("%f", &num);
 
+    if (num < 0) {
+        printf("*** used abs func \n");
+        num = absolute_number_util(num);
+    };
+
     printf("sqrt of %.2f is : %.2f\n", num, get_sqrt_util(num));
 };

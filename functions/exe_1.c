@@ -1,16 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void use_gcd();
 void absolute_number();
+void get_sqrt();
 
 int main() {
     // use_gcd();
-    absolute_number();
+    // absolute_number();
+    get_sqrt();
     return 0;
 };
 
 // inner function
-int greatest_common_deviser(int a, int b) {
+int gcd_util(int a, int b) {
     // Euclidean Algorithm
     if (a == 0) {
         return b;
@@ -21,7 +24,7 @@ int greatest_common_deviser(int a, int b) {
     // a = main + reminder
     int reminder = a % b;
     int main = b;
-    return greatest_common_deviser(main, reminder);
+    return gcd_util(main, reminder);
 };
 
 void use_gcd() {
@@ -30,7 +33,7 @@ void use_gcd() {
     scanf("%d %d", &a, &b);
 
     if (a > 0 && b > 0) {
-        printf("\nGCD : %d\n", greatest_common_deviser(a, b));
+        printf("\nGCD : %d\n", gcd_util(a, b));
     } else {
         printf("invalid data !\n");
     };
@@ -38,9 +41,8 @@ void use_gcd() {
 
 float absolute_number_util(float num) {
     // calc abs number
-    float tmp = num;
     if (num < 0) {
-        return tmp + ((float)(sqrt(num * num) * 2));
+        return num + ((float)(sqrt(num * num) * 2));
     } else {
         return num;
     };
@@ -52,4 +54,30 @@ void absolute_number() {
     printf("\nenter a number : ");
     scanf("%f", &num);
     printf("\nabs of number is : %.2f\n", absolute_number_util(num));
+};
+
+float get_sqrt_util(float num) {
+    // jet two closest sqrt from the target number
+    float close_from_top = num - 1;
+    float close_from_button = num + 1;
+
+    for (float i = 2, j = num; i < num; i++, j--) {
+        while (close_from_top < num) {
+            close_from_top = i * i;
+        };
+        while (close_from_button > num) {
+            close_from_button = j * j;
+        };
+    };
+    printf("bottom %f , top %f", close_from_button, close_from_top);
+
+    return 0.0f;
+};
+
+void get_sqrt() {
+    float num;
+    printf("\nenter a number : ");
+    scanf("%f", &num);
+    
+    printf("\nsqrt of %.2f is : %.2f", num, get_sqrt_util(num));
 };

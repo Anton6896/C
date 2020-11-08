@@ -52,11 +52,18 @@ int main() {
             if (pl1 == -1) {
                 // exit game
                 break;
+            } else if (pl1 == 1) {
+                printf("player %s is winner !!!!", p1_name);
+//                todo as player for next game !
+                break;
             };
 
             int pl2 = make_move(p2_name, p2_sine, board);
             if (pl2 == -1) {
                 // exit game
+                break;
+            } else if (pl2 == 1) {
+                printf("player %s is winner !!!!", p2_name);
                 break;
             };
         };
@@ -77,14 +84,19 @@ void show_desk(char desk[3][3]) {
 };
 
 int winner(char desk[3][3]) {
-    char ch;
+    if (desk[0][0] == desk[0][1] && desk[0][1] == desk[0][2] && desk[0][2] != '.' ||
+        desk[1][0] == desk[1][1] && desk[1][1] == desk[1][2] && desk[1][2] != '.' ||
+        desk[2][0] == desk[2][1] && desk[2][1] == desk[2][2] && desk[2][2] != '.' ||
 
-    if (desk[0][0] == 'x') {
+        desk[0][0] == desk[1][0] && desk[1][0] == desk[2][0] && desk[2][0] != '.' ||
+        desk[0][1] == desk[1][1] && desk[1][1] == desk[2][1] && desk[2][1] != '.' ||
+        desk[0][2] == desk[1][2] && desk[1][2] == desk[2][2] && desk[2][2] != '.' ||
 
-        return -1;
-    } else {
-        return 0;
+        desk[0][2] == desk[1][1] && desk[1][1] == desk[2][0] && desk[2][0] != '.' ||
+        desk[0][0] == desk[1][1] && desk[1][1] == desk[2][2] && desk[2][2] != '.') {
+        return 1;
     };
+    return 0;
 };
 
 bool can_move(int a, int b, char desk[3][3]) {

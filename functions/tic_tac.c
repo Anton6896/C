@@ -16,7 +16,7 @@ bool inner = true;
 bool outher = true;
 
 
-int main() {
+int game_on() {
 
     char p1_sine = 'x';
     char p2_sine = 'o';
@@ -59,9 +59,9 @@ int main() {
                 printf("player %s is winner !!!!\n", p1_name);
                 printf("would you like to play again ? enter y/n : ");
                 scanf("%c", &ch);
-                /* ? */
+                /* ? cant get the player choice here !!!!! */
                 getchar();
-                ch == 'y' ? (inner = true, outher = true) : (inner = false, outher = false);
+                (ch == 'y') ? (inner = true, outher = true) : (inner = false, outher = false);
                 break;
             };
 

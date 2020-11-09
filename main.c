@@ -4,11 +4,13 @@
 
 
 #include "char_string/str_learn.c"
+#include "pointers/point.c"
 
 
 int main() {
 //    define_string();
 
+/*
     char text_string[] = {
             "he C library function double strtod(const char *str, char **endptr)"
             " converts the string pointed to by the argument str to a floating-poi"};
@@ -20,7 +22,10 @@ int main() {
     char w1[] = "abc";
     char w2[] = "abcs";
     printf("\nis they same ? : %d", my_compare(w1, w2));
+*/
 
 
+
+    po1();
     return 0;
 };

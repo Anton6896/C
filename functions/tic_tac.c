@@ -11,15 +11,18 @@ bool can_move(int a, int b, char desk[3][3]);
 
 int make_move(char inner_circleer[50], char sine, char desk[3][3]);
 
-// global var
+// global var for circles
 bool inner = true;
 bool outher = true;
-char p1_sine = 'x';
-char p2_sine = 'o';
-char p1_name[50];
-char p2_name[50];
+
 
 int main() {
+
+    char p1_sine = 'x';
+    char p2_sine = 'o';
+    char p1_name[50];
+    char p2_name[50];
+    char ch;
 
     // main base desk
     char desk[3][3] = {
@@ -53,8 +56,10 @@ int main() {
                 // exit game
                 break;
             } else if (pl1 == 1) {
-                printf("player %s is winner !!!!", p1_name);
-//                todo as player for next game !
+                printf("player %s is winner !!!!\n", p1_name);
+                printf("would you like to play again ? enter y/n");
+                scanf("%c", &ch);
+                ch == 'y' ? (inner = true, outher = true) : (inner = false, outher = false);
                 break;
             };
 
@@ -63,7 +68,10 @@ int main() {
                 // exit game
                 break;
             } else if (pl2 == 1) {
-                printf("player %s is winner !!!!", p2_name);
+                printf("player %s is winner !!!!\n", p2_name);
+                printf("would you like to play again ? enter y/n");
+                scanf("%c", &ch);
+                ch == 'y' ? (inner = true, outher = true) : (inner = false, outher = false);
                 break;
             };
         };
@@ -84,6 +92,10 @@ void show_desk(char desk[3][3]) {
 };
 
 int winner(char desk[3][3]) {
+
+    // this is the trick for debugging the values
+    int returnValue = 0;
+
     if (desk[0][0] == desk[0][1] && desk[0][1] == desk[0][2] && desk[0][2] != '.' ||
         desk[1][0] == desk[1][1] && desk[1][1] == desk[1][2] && desk[1][2] != '.' ||
         desk[2][0] == desk[2][1] && desk[2][1] == desk[2][2] && desk[2][2] != '.' ||
@@ -94,9 +106,9 @@ int winner(char desk[3][3]) {
 
         desk[0][2] == desk[1][1] && desk[1][1] == desk[2][0] && desk[2][0] != '.' ||
         desk[0][0] == desk[1][1] && desk[1][1] == desk[2][2] && desk[2][2] != '.') {
-        return 1;
+        returnValue = 1;
     };
-    return 0;
+    return returnValue;
 };
 
 bool can_move(int a, int b, char desk[3][3]) {

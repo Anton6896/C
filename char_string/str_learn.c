@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /* constant values for all use */
 #define PI 3.14159f
@@ -60,6 +61,28 @@ int define_string() {
         printf("\n%s", token);
         token = strtok(NULL, s);
     };
+
+
+    // func to count the string leters etc
+    char text_3[] = {"social purposes. Governmental and non-governmental , organizations"
+                     "use text messaging for communication: between colleagues. In the 2010s"};
+    int n_letters = 0;
+    int n_digets = 0;
+    int n_punct = 0;
+    int i = 0;
+
+    printf("\ncount the number of (l d p) :");
+    while (text_3[i]) {
+        if (isalpha(text_3[i])) {
+            ++n_letters;
+        } else if (isdigit(text_3[i])) {
+            ++n_digets;
+        } else if (ispunct(text_3[i])) {
+            ++n_punct;
+        };
+        ++i;
+    };
+    printf("\nletters : %d\ndigits : %d\npunct : %d", n_letters, n_digets, n_punct);
 
 
     return 0;

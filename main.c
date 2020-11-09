@@ -2,15 +2,14 @@
 // Created by anton on 09/11/2020.
 //
 
-
-#include "char_string/str_learn.c"
+// #include "char_string/str_learn.c"
 #include "pointers/point.c"
 
-
 int main() {
-//    define_string();
+    //    define_string();
 
-/*
+    /*
+    // string and using string functions
     char text_string[] = {
             "he C library function double strtod(const char *str, char **endptr)"
             " converts the string pointed to by the argument str to a floating-poi"};
@@ -24,8 +23,7 @@ int main() {
     printf("\nis they same ? : %d", my_compare(w1, w2));
 */
 
-
-
-    po1();
+    /* using pointers  */
+    my_pointers();
     return 0;
 };

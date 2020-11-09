@@ -10,9 +10,14 @@ int my_pointers() {
     int number = 99;
     int *pnumber = &number;
 
-    /* get the data from pointer */
-    printf("\ndata that pointer points *name : %d\n", *pnumber);
-
+    /* accsess data from pointer */
+    printf("\nint number = %d", number);
+    printf("\n value that hold *number : %d", *pnumber);
+    // return hexadecimal address
+    printf("\n *number value : %p", pnumber);
+    // 8 bytes for (64 sys)
+    printf("\nnumber of bytesthat that pointer use : %d", (int)sizeof(pnumber));
+    printf("\n >>> *number address : %p\n", &pnumber);
 
     return 0;
 }

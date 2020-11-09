@@ -7,7 +7,6 @@
 
 
 int main() {
-//    game_on();
     define_string();
 
     return 0;

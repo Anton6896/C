@@ -98,16 +98,18 @@ int winner(char desk[3][3]) {
     // this is the trick for debugging the values
     int returnValue = 0;
 
-    if (desk[0][0] == desk[0][1] && desk[0][1] == desk[0][2] && desk[0][2] != '.' ||
-        desk[1][0] == desk[1][1] && desk[1][1] == desk[1][2] && desk[1][2] != '.' ||
-        desk[2][0] == desk[2][1] && desk[2][1] == desk[2][2] && desk[2][2] != '.' ||
+    if (
+            (desk[0][0] == desk[0][1] && desk[0][1] == desk[0][2]) && (desk[0][2] != '.') ||
+            (desk[1][0] == desk[1][1] && desk[1][1] == desk[1][2]) && (desk[1][2] != '.') ||
+            (desk[2][0] == desk[2][1] && desk[2][1] == desk[2][2]) && (desk[2][2] != '.') ||
 
-        desk[0][0] == desk[1][0] && desk[1][0] == desk[2][0] && desk[2][0] != '.' ||
-        desk[0][1] == desk[1][1] && desk[1][1] == desk[2][1] && desk[2][1] != '.' ||
-        desk[0][2] == desk[1][2] && desk[1][2] == desk[2][2] && desk[2][2] != '.' ||
+            (desk[0][0] == desk[1][0] && desk[1][0] == desk[2][0]) && (desk[2][0] != '.') ||
+            (desk[0][1] == desk[1][1] && desk[1][1] == desk[2][1]) && (desk[2][1] != '.') ||
+            (desk[0][2] == desk[1][2] && desk[1][2] == desk[2][2]) && (desk[2][2] != '.') ||
 
-        desk[0][2] == desk[1][1] && desk[1][1] == desk[2][0] && desk[2][0] != '.' ||
-        desk[0][0] == desk[1][1] && desk[1][1] == desk[2][2] && desk[2][2] != '.') {
+            (desk[0][2] == desk[1][1] && desk[1][1] == desk[2][0]) && (desk[2][0] != '.') ||
+            (desk[0][0] == desk[1][1] && desk[1][1] == desk[2][2]) && (desk[2][2] != '.')
+            ) {
         returnValue = 1;
     };
     return returnValue;

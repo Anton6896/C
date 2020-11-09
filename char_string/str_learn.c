@@ -37,6 +37,30 @@ int define_string() {
     /* return <0 -> the str is differ , return >0 str1 differ , return 0 equality */
     printf("\nis two string are equal ? : strcmp() ->  %d", strcmp(st_1, st_2));
 
+    /* look for the sub string strstr(), case sensitive */
+    char text_1[] = {"the dogs is amazing"};
+    char word_1[] = {"dogs"};
+    char *p_found = NULL;
+    p_found = strstr(text_1, word_1);
+    printf("\nthe word that found from string '%s': '%s' ", text_1, p_found);
+
+    /* the token idea */
+    printf("\nthe idea of tokens :");
+    char text_2[] = {"first line - second line - other line "};
+    const char s[2] = "-";
+    char *token;
+
+    // get first token
+    // python <- spit('-')
+    token = strtok(text_2, s);
+
+    // walk thru the other tokens ( it will be separated with -
+    // look like the walk in linked list
+    while (token != NULL) {
+        printf("\n%s", token);
+        token = strtok(NULL, s);
+    };
+
 
     return 0;
 }

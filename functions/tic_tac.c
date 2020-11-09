@@ -57,8 +57,10 @@ int main() {
                 break;
             } else if (pl1 == 1) {
                 printf("player %s is winner !!!!\n", p1_name);
-                printf("would you like to play again ? enter y/n");
+                printf("would you like to play again ? enter y/n : ");
                 scanf("%c", &ch);
+                /* ? */
+                getchar();
                 ch == 'y' ? (inner = true, outher = true) : (inner = false, outher = false);
                 break;
             };

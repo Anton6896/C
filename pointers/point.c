@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int my_pointers() {
     printf("define pointers :\n");
@@ -8,16 +7,18 @@ int my_pointers() {
      * declare pointer on int number , pointer have to be allocated to memory or NULL
      * */
     int number = 99;
-    int *pnumber = &number;
+    int *pnumber = NULL;
 
-    /* accsess data from pointer */
-    printf("\nint number = %d", number);
-    printf("\n value that hold *number : %d", *pnumber);
-    // return hexadecimal address
-    printf("\n *number value : %p", pnumber);
-    // 8 bytes for (64 sys)
-    printf("\nnumber of bytesthat that pointer use : %d", (int)sizeof(pnumber));
-    printf("\n >>> *number address : %p\n", &pnumber);
+    printf("\nnumber address > %p", &number);
+    printf("\nnumber value %d\n", number);
+
+    pnumber = &number; // store the address of num in pnumber
+    printf("\npnumber address > %p", &pnumber); // address of it self
+    printf("\nsize of the pointer > %d", (int) sizeof(pnumber)); // size
+    printf("\npnumber value > %p", pnumber); // address of number
+    printf("\n*pnumber data poindet to  > %d \n", *pnumber); // value that point to
+    /* pointer holds address of int number */
+
 
     return 0;
 }

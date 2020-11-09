@@ -5,10 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 /* constant values for all use */
 #define PI 3.14159f
 #define my_num 56
+
 const char msg[] = "\nsome constant message ... ";
 
 
@@ -33,7 +35,7 @@ int define_string() {
     strncpy(dest, st_1, strlen(st_1) + 1);
     printf("\ncopyead string : %s", dest);
 
-    printf("\nstrlen() return long %ld", strlen(st_1));
+    printf("\nstrlen() return long %llu", strlen(st_1));
 
     /* return <0 -> the str is differ , return >0 str1 differ , return 0 equality */
     printf("\nis two string are equal ? : strcmp() ->  %d", strcmp(st_1, st_2));
@@ -85,5 +87,49 @@ int define_string() {
     printf("\nletters : %d\ndigits : %d\npunct : %d", n_letters, n_digets, n_punct);
 
 
+
+    /* converting strings func */
+    char text_4[] = {"\nthis text is was in lower  123 case letters !"};
+    for (int j = 0; (text_4[j] = (char) toupper(text_4[j])) != '\0'; ++j);
+
+    printf("%s", text_4);
+
+    // text to int ( atoi(), atol(), atoll(), atof() ) <> itoa()
+    char number[] = "345.5";
+    double num = atof(number);
+    printf("\nconverted number : %.2f", num);
+
+
     return 0;
+};
+
+
+int my_char_counter(char text[]) {
+    // return number of letters in the string
+    int counter = 0;
+    int nlet = 0;
+    int ndig = 0;
+    int npunc = 0;
+
+    while (text[counter] != '\0') {
+        if (isalpha(text[counter])) {
+            ++nlet;
+        } else if (isdigit(text[counter])) {
+            ++ndig;
+        } else if (ispunct(text[counter])) {
+            ++npunc;
+        };
+        ++counter;
+    };
+    printf("\nletters : %d\ndigits : %d\npunct : %d", nlet, ndig, npunc);
+    return counter;
+};
+
+
+const char *my_concat(char str1[], char str2[]) {
+    return strcat(str1, str2);
+};
+
+bool my_compare(char str1[], char str2[]) {
+    return strcmp(str1, str2) == 0 ? true : false;
 }

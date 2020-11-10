@@ -94,7 +94,9 @@ int void_p() {
     return 0;
 }
 
-int arraySum(int arr[], const int n) {
+
+// pointer function
+int arrSum(int arr[], const int n) {
     // n size of array
     int sum = 0, *ptr;
 
@@ -106,6 +108,17 @@ int arraySum(int arr[], const int n) {
     printf("\nsum all values from array using pointer : %i", sum);
     return 0;
 }
+
+int arrSum_p(int *arr, const int n) {
+    // (address)arr_end + (int)n
+    int sum = 0, *const arr_end = arr + n;
+    for (; arr < arr_end; ++arr) {
+        sum += *arr;
+    }
+    printf("\nsame func with other value as pointers : %i", sum);
+    return 0;
+}
+
 
 int array_p() {
     printf("array and pointers : \n");
@@ -131,7 +144,10 @@ int array_p() {
     // access data tru the array in array
     printf("\nget second element from array : %d", *(pvalues + 1));  // 12
 
-    arraySum(values, 100);
+    // 400 / 4 = 100  ( sizeof(values[0]) = 4kb )
+    int count = (int) (sizeof(values) / sizeof(values[0])); // 100
+    arrSum(values, count);
+    arrSum_p(values, count);
 
 
     return 0;

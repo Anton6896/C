@@ -25,6 +25,8 @@ int main() {
 
     /* using pointers  */
 //    my_pointers();
-    exe_1();
+//    exe_1();
+//    pointer_and_constant();
+    poiner_to_void();
     return 0;
-};
+}

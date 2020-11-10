@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int my_pointers() {
     printf("define pointers :\n");
@@ -38,3 +39,60 @@ int exe_1() {
 
     return 0;
 }
+
+int pointer_and_constant() {
+    long num = 7l;
+    printf("\nnum is : %lu", num);
+    const long *pnum = &num;
+    /* cant assign thru hte pointer but can do thru the num !!! */
+//    *pnum += 5l; // error: read-only variable is not assignable
+    num += 3l;
+    printf("\nnum is : %lu", num);
+    printf("\npointer point to value : %lu", *pnum);
+
+    /* and you do can change the pointer value it self to point to other location  */
+    long num_2 = 56l;
+    pnum = &num_2;
+    printf("\npointer point to other value now : %lu", *pnum);
+    /* but you cannot change the value thru hte pointer it self because of const ! */
+
+    // ensure that the pointer have immutable address
+    long *const pnum_2 = &num;
+//    pnum_2 = &num; // error: cannot assign to variable 'pnum_2' with const-qualified type 'long *const'
+    *pnum_2 = 65l; // this ok
+    printf("\npointer point to other value now : %lu", *pnum_2);
+
+    return 0;
+}
+
+int poiner_to_void() {
+    printf("void pointers : ");
+    /* the beauty is that you can get any type in
+     * but after you need to cast is to type that was specified (decode it )
+     * */
+
+    // variable
+    int n = 10;
+    float fl = 4.45;
+    char ch = 'k';
+
+    // pointer
+    void *vptr;
+
+    // using
+    vptr = &n;
+    printf("\nint value \t\t: %d", *(int *) vptr);
+
+    vptr = &fl;
+    printf("\nfloat value \t: %.2f", *(float *) vptr);
+
+    vptr = &ch;
+    printf("\nchar value \t\t:'%c' ", *(char *) vptr);
+
+
+    printf("\n");
+    return 0;
+}
+
+
+

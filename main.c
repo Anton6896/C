@@ -26,7 +26,10 @@ int main() {
     /* using pointers  */
 //    my_pointers();
 //    exe_1();
-//    pointer_and_constant();
-    poiner_to_void();
+//    constant_p();
+//    void_p();
+    array_p();
+
+    printf("\n");
     return 0;
 }

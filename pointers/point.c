@@ -40,7 +40,7 @@ int exe_1() {
     return 0;
 }
 
-int pointer_and_constant() {
+int constant_p() {
     long num = 7l;
     printf("\nnum is : %lu", num);
     const long *pnum = &num;
@@ -65,7 +65,7 @@ int pointer_and_constant() {
     return 0;
 }
 
-int poiner_to_void() {
+int void_p() {
     printf("void pointers : ");
     /* the beauty is that you can get any type in
      * but after you need to cast is to type that was specified (decode it )
@@ -94,5 +94,47 @@ int poiner_to_void() {
     return 0;
 }
 
+int arraySum(int arr[], const int n) {
+    // n size of array
+    int sum = 0, *ptr;
+
+    // get value from array with address
+    for (ptr = arr; ptr < (arr + n); ++ptr) {
+        sum += *ptr;
+    }
+
+    printf("\nsum all values from array using pointer : %i", sum);
+    return 0;
+}
+
+int array_p() {
+    printf("array and pointers : \n");
+    int values[100] = {11, 12, 13, 14, 15, 16, 17, 2}; // sum = 100
+
+
+    /** will point to first element in array
+     * can do like that because the array is pointer by it self
+     * all arrays is pointers (sting is array)
+     * */
+    int *pvalues;
+    pvalues = values; // <-> pvalues = values[0];  (same thing)
+    // same address
+    printf("\npointer value  : %p", pvalues);
+    printf("\nvalues address : %p", &values);
+
+    /**
+     * array is a closest chunk of addresses that can be reached thru the pointer
+     * pvalues = values;
+     * *(pvalues + 1) -> get data from :  pvalue + 1 = values[1]
+     *
+     */
+    // access data tru the array in array
+    printf("\nget second element from array : %d", *(pvalues + 1));  // 12
+
+    arraySum(values, 100);
+
+
+    return 0;
+}
 
 

@@ -22,3 +22,19 @@ int my_pointers() {
 
     return 0;
 }
+
+int exe_1() {
+    printf("\nbasic exercise : \n");
+    int value = 10;
+    int *pvalue = &value;
+
+
+    printf("\npointer address : %p", &pvalue);
+    printf("\naddress of value : %p", &value);
+    printf("\nvalue of the pointer  : %p", pvalue);
+    printf("\nis address of the value and pointer value same ? : %s",
+           ((&value == pvalue) == 1 ? "True" : "False"));
+    printf("\nvalue that the pointer is point to : %d", *pvalue);
+
+    return 0;
+}

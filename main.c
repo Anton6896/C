@@ -24,6 +24,7 @@ int main() {
 */
 
     /* using pointers  */
-    my_pointers();
+//    my_pointers();
+    exe_1();
     return 0;
 };

@@ -197,7 +197,6 @@ int string_p() {
     return 0;
 };
 
-
 // pointer arithmetics exercise 1
 int exer_util1(const char *a) {
     const char *end = a;
@@ -214,10 +213,49 @@ void exer_test1() {
 }
 
 
+// pass by value and pass by reference , argument to function
+int swap_by_value(int a, int b) {
+    // the arguments is passed by value ,
+    // the just copy of real for the function inside of it
+    int tmp = a;
+    a = b;
+    b = tmp;
+    return 0;
+}
+
+int swap_by_reference(int *a, int *b) {
+    // change the data thru the pointer
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+    return 0;
+}
+
+int pass_by() {
+
+    // here is using the pointer as param in functions 
+    // like that you can modify data outside the function
+
+    int a = 100, b = 200;
+    printf("\nbefore swap a = 100 : %s", (a == 100 ? "true" : "false"));
+    swap_by_value(a, b);
+    printf("\nafter swap_by_value a = 100 : %s", (a == 100 ? "true" : "false"));
+    swap_by_reference(&a, &b); // must assign address
+    printf("\nafter swap_by_reference a = 100 : %s -> %d", (a == 100 ? "true" : "false"), a);
+
+    /**
+     * now you understand why to put constant in argument with pointers
+     * int do_some(const char* mess){}   <- here you won't change the mess that was pass thru the pointer !
+     *
+     * */
+
+}
+
+
 int my_main() {
 //    string_p();
-    exer_test1();
-
+//    exer_test1();
+    pass_by();
 
     return 0;
 }

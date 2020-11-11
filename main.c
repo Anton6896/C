@@ -4,6 +4,8 @@
 
 // #include "char_string/str_learn.c"
 #include "pointers/point.c"
+#include "pointers/mem.c"
+
 
 int main() {
     //    define_string();
@@ -28,7 +30,9 @@ int main() {
 //    exe_1();
 //    constant_p();
 //    void_p();
-    my_main();
+//    my_main();
+    mem();
+
 
     printf("\n");
     return 0;

@@ -264,10 +264,10 @@ int exe_2_test() {
 
 }
 
-/**Dynamic memory allocation*/
+/**Dynamic memory allocation nad memory control */
 int memory_my(){
 
-    
+
     return 0;
 }
 

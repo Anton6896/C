@@ -41,7 +41,7 @@ int exe_1() {
     return 0;
 }
 
-// constant pointers
+/**constant pointers*/
 int constant_p() {
     long num = 7l;
     printf("\nnum is : %lu", num);
@@ -153,7 +153,7 @@ int array_p() {
     return 0;
 }
 
-// string and pointers
+/**string and pointers*/
 void copyString(char a[], char b[]) {
     int i = 0; // outside loop for outer use
     for (; b[i] != '\0'; ++i) {
@@ -213,7 +213,7 @@ void exer_test1() {
 }
 
 
-// pass by value and pass by reference , argument to function
+/**pass by value and pass by reference , argument to function*/
 int swap_by_value(int a, int b) {
     // the arguments is passed by value ,
     // the just copy of real for the function inside of it
@@ -233,7 +233,7 @@ int swap_by_reference(int *a, int *b) {
 
 int pass_by() {
 
-    // here is using the pointer as param in functions 
+    // here is using the pointer as param in functions
     // like that you can modify data outside the function
 
     int a = 100, b = 200;
@@ -251,11 +251,33 @@ int pass_by() {
 
 }
 
+int exer_2_util(int *num) {
+    *num = *num * *num;
+    return *num;
+}
+
+int exe_2_test() {
+    int n1 = 3, n2 = 4;
+
+    printf("\nqsr %i", exer_2_util(&n1));
+    printf("\nqsr %i", exer_2_util(&n2));
+
+}
+
+/**Dynamic memory allocation*/
+int memory_my(){
+
+    
+    return 0;
+}
+
 
 int my_main() {
 //    string_p();
 //    exer_test1();
-    pass_by();
+//    pass_by();
+//    exe_2_test();
 
+    memory_my();
     return 0;
 }

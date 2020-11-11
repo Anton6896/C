@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int my_pointers() {
     printf("define pointers :\n");
 
@@ -40,6 +41,7 @@ int exe_1() {
     return 0;
 }
 
+/**constant pointers*/
 int constant_p() {
     long num = 7l;
     printf("\nnum is : %lu", num);
@@ -65,6 +67,8 @@ int constant_p() {
     return 0;
 }
 
+
+/** void pointer */
 int void_p() {
     printf("void pointers : ");
     /* the beauty is that you can get any type in
@@ -94,13 +98,12 @@ int void_p() {
     return 0;
 }
 
-
 // pointer function
 int arrSum(int arr[], const int n) {
     // n size of array
     int sum = 0, *ptr;
 
-    // get value from array with address
+    // arr (is address) + n (amount in array)
     for (ptr = arr; ptr < (arr + n); ++ptr) {
         sum += *ptr;
     }
@@ -119,13 +122,13 @@ int arrSum_p(int *arr, const int n) {
     return 0;
 }
 
-
 int array_p() {
     printf("array and pointers : \n");
     int values[100] = {11, 12, 13, 14, 15, 16, 17, 2}; // sum = 100
 
 
-    /** will point to first element in array
+    /**
+     * will point to first element in array
      * can do like that because the array is pointer by it self
      * all arrays is pointers (sting is array)
      * */
@@ -134,6 +137,7 @@ int array_p() {
     // same address
     printf("\npointer value  : %p", pvalues);
     printf("\nvalues address : %p", &values);
+    printf("\npointer value  : %d", *pvalues);
 
     /**
      * array is a closest chunk of addresses that can be reached thru the pointer
@@ -153,4 +157,131 @@ int array_p() {
     return 0;
 }
 
+/**string and pointers*/
+void copyString(char a[], char b[]) {
+    int i = 0; // outside loop for outer use
+    for (; b[i] != '\0'; ++i) {
+        a[i] = b[i];
+    }
+    a[i] = '\0';
+}
 
+void copyString_p(char *to, char *from) {
+    for (; *from != '\0'; ++from, ++to) {
+        // assignment not working ?!
+        *to = *from;
+    }
+    *to = '\0';
+}
+
+void copyString_p2(char *to, char *from) {
+    while (*from) {
+        *to++ = *from++;
+    }
+    *to = '\0';
+}
+
+int string_p() {
+    printf("string and pointer :\n");
+    char b[] = "123456789";
+
+    char a[10];
+    copyString(a, b);
+    printf("\ncopyString    : %s", a);
+
+    char c[10];
+    copyString_p(c, b);
+    printf("\ncopyString_p  : %s", c);
+
+    char e[10];
+    copyString_p2(e, b);
+    printf("\ncopyString_p2 : %s", e);
+
+
+    return 0;
+};
+
+// pointer arithmetics exercise 1
+int exer_util1(const char *a) {
+    const char *end = a;
+    while (*end) {
+        end++; // get to the end position
+    }
+    return (int) (end - a);
+}
+
+void exer_test1() {
+    printf("\nexercise 1 testing : %d", exer_util1("12345"));
+    printf("\nexercise 1 testing : %d", exer_util1(""));
+    printf("\nexercise 1 testing : %d", exer_util1("12"));
+}
+
+
+/**pass by value and pass by reference , argument to function*/
+int swap_by_value(int a, int b) {
+    // the arguments is passed by value ,
+    // the just copy of real for the function inside of it
+    int tmp = a;
+    a = b;
+    b = tmp;
+    return 0;
+}
+
+int swap_by_reference(int *a, int *b) {
+    // change the data thru the pointer
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+    return 0;
+}
+
+int pass_by() {
+
+    // here is using the pointer as param in functions
+    // like that you can modify data outside the function
+
+    int a = 100, b = 200;
+    printf("\nbefore swap a = 100 : %s", (a == 100 ? "true" : "false"));
+    swap_by_value(a, b);
+    printf("\nafter swap_by_value a = 100 : %s", (a == 100 ? "true" : "false"));
+    swap_by_reference(&a, &b); // must assign address
+    printf("\nafter swap_by_reference a = 100 : %s -> %d", (a == 100 ? "true" : "false"), a);
+
+    /**
+     * now you understand why to put constant in argument with pointers
+     * int do_some(const char* mess){}   <- here you won't change the mess that was pass thru the pointer !
+     *
+     * */
+
+}
+
+int exer_2_util(int *num) {
+    *num = *num * *num;
+    return *num;
+}
+
+int exe_2_test() {
+    int n1 = 3, n2 = 4;
+
+    printf("\nqsr %i", exer_2_util(&n1));
+    printf("\nqsr %i", exer_2_util(&n2));
+
+}
+
+/**Dynamic memory allocation nad memory control */
+int memory_my(){
+
+
+    return 0;
+}
+
+
+int my_main() {
+//    string_p();
+//    exer_test1();
+//    pass_by();
+//    exe_2_test();
+    array_p();
+//    memory_my();
+    return 0;
+}

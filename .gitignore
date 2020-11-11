@@ -2,6 +2,7 @@
 *.out
 .vscode/
 .idea/
+.vs
 cmake-build-debug/
 CMakeLists.txt
 .vs

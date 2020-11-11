@@ -41,6 +41,7 @@ int exe_1() {
     return 0;
 }
 
+// constant pointers
 int constant_p() {
     long num = 7l;
     printf("\nnum is : %lu", num);
@@ -152,13 +153,71 @@ int array_p() {
     return 0;
 }
 
+// string and pointers
+void copyString(char a[], char b[]) {
+    int i = 0; // outside loop for outer use
+    for (; b[i] != '\0'; ++i) {
+        a[i] = b[i];
+    }
+    a[i] = '\0';
+}
+
+void copyString_p(char *to, char *from) {
+    for (; *from != '\0'; ++from, ++to) {
+        // assignment not working ?!
+        *to = *from;
+    }
+    *to = '\0';
+}
+
+void copyString_p2(char *to, char *from) {
+    while (*from) {
+        *to++ = *from++;
+    }
+    *to = '\0';
+}
+
 int string_p() {
     printf("string and pointer :\n");
+    char b[] = "123456789";
+
+    char a[10];
+    copyString(a, b);
+    printf("\ncopyString    : %s", a);
+
+    char c[10];
+    copyString_p(c, b);
+    printf("\ncopyString_p  : %s", c);
+
+    char e[10];
+    copyString_p2(e, b);
+    printf("\ncopyString_p2 : %s", e);
+
 
     return 0;
 };
 
 
+// pointer arithmetics exercise 1
+int exer_util1(const char *a) {
+    const char *end = a;
+    while (*end) {
+        end++; // get to the end position
+    }
+    return (int) (end - a);
+}
+
+void exer_test1() {
+    printf("\nexercise 1 testing : %d", exer_util1("12345"));
+    printf("\nexercise 1 testing : %d", exer_util1(""));
+    printf("\nexercise 1 testing : %d", exer_util1("12"));
+}
+
+
 int my_main() {
-    string_p();
-};
+//    string_p();
+    exer_test1();
+
+
+    return 0;
+}

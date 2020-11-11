@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int my_pointers() {
     printf("define pointers :\n");
 
@@ -94,13 +95,12 @@ int void_p() {
     return 0;
 }
 
-
 // pointer function
 int arrSum(int arr[], const int n) {
     // n size of array
     int sum = 0, *ptr;
 
-    // get value from array with address
+    // arr (is address) + n (amount in array)
     for (ptr = arr; ptr < (arr + n); ++ptr) {
         sum += *ptr;
     }
@@ -118,7 +118,6 @@ int arrSum_p(int *arr, const int n) {
     printf("\nsame func with other value as pointers : %i", sum);
     return 0;
 }
-
 
 int array_p() {
     printf("array and pointers : \n");
@@ -153,4 +152,13 @@ int array_p() {
     return 0;
 }
 
+int string_p() {
+    printf("string and pointer :\n");
 
+    return 0;
+};
+
+
+int my_main() {
+    string_p();
+};

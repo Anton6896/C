@@ -28,7 +28,7 @@ int main() {
 //    exe_1();
 //    constant_p();
 //    void_p();
-    array_p();
+    my_main();
 
     printf("\n");
     return 0;

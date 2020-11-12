@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.exe
 *.out
 .vscode/
@@ -5,3 +6,13 @@
 .vs
 cmake-build-debug/
 CMakeLists.txt
+=======
+*.exe
+*.out
+.vscode/
+.idea/
+.vs
+cmake-build-debug/
+CMakeLists.txt
+.vs
+>>>>>>> 3a9602e146924d8062c81de8e02db24121956aa4

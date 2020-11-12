@@ -252,7 +252,7 @@ int pass_by() {
      * int do_some(const char* mess){}   <- here you won't change the mess that was pass thru the pointer !
      *
      * */
-
+    return 0;
 }
 
 int exer_2_util(int *num) {
@@ -266,6 +266,7 @@ int exe_2_test() {
     printf("\nqsr %i", exer_2_util(&n1));
     printf("\nqsr %i", exer_2_util(&n2));
 
+    return 0;
 }
 
 /**Dynamic memory allocation nad memory control */

@@ -5,6 +5,8 @@
 // #include "char_string/str_learn.c"
 #include "pointers/point.c"
 #include "pointers/mem.c"
+#include "Struct/my_struct.c"
+
 
 
 int main() {
@@ -32,7 +34,8 @@ int main() {
 //    void_p();
 //    my_main();
 
-    mem();
+//    mem_main();
+    main_strunc();
 
 
     printf("\n");

@@ -63,3 +63,48 @@ int mem() {
 
     return 0;
 }
+
+void exe_1_lesson() {
+    int size;
+    char *text = NULL;
+
+    // get size for text from user
+    printf("enter text limit :");
+    scanf("%d", &size);
+    text = (char *) malloc(size * sizeof(char));
+
+    if (text != NULL) { // text have address
+        printf("enter text : ");
+        scanf(" %[^\n]", text);
+        printf("your text: %s", text);
+    }
+
+    free(text);
+    text = NULL;
+}
+
+int exer_1() {
+
+    char *text = (char *) malloc(100 * sizeof(char));
+    int size = 0;
+
+    printf("enter text: ");
+    scanf("%[^\n]", text);
+    for (int i = 0; text[i] != '\0'; ++i, ++size); // get actual text size
+
+    // reallocate memory to text
+    text = (char *) realloc(text, size);
+    printf("text: %s, size: %i", text, size);
+
+    // free memory
+    free(text);
+    text = NULL;
+
+    return 0;
+}
+
+void mem_main() {
+//    mem();
+//    exer_1();
+    exe_1_lesson();
+}

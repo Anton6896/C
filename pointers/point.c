@@ -47,7 +47,7 @@ int constant_p() {
     long num = 7l;
     printf("\nnum is : %lu", num);
     const long *pnum = &num;
-    /* cant assign thru hte pointer but can do thru the num !!! */
+    /* can't assign thru hte pointer but can do thru the num !!! */
 //    *pnum += 5l; // error: read-only variable is not assignable
     num += 3l;
     printf("\nnum is : %lu", num);

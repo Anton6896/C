@@ -6,7 +6,7 @@
 //#include "pointers/point.c"
 #include "pointers/mem.c"
 #include "Struct/my_struct.c"
-
+#include "input_output/my_io.c"
 
 
 int main() {
@@ -35,8 +35,8 @@ int main() {
 //    my_main();
 
 //    mem_main();
-    main_strunc();
-
+//    main_strunc();
+    io_main();
 
     printf("\n");
     return 0;

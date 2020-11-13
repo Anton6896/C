@@ -11,7 +11,7 @@
 #include <limits.h>
 #include <string.h>
 
-
+// for windows ! 
 #define my_folder "D:\\Documents\\Code\\C\\basic\\input_output\\files\\"
 
 int io_1() {
@@ -61,6 +61,7 @@ int io_1() {
 void io_2() {
 
 /// fill file with text
+    // for windows 
     char file_name[] = "D:\\Documents\\Code\\C\\basic\\input_output\\files\\text.txt";
     char buffer[100];
 

@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 
 struct date {
@@ -53,8 +54,33 @@ struct namect {
     int letters;
 };
 
+struct Item {
+    char *item_name;
+    int quantity;
+    float price;
+    float amount; // quantity * price
+};
+
+int readItem(struct Item *item);
+
 void get_info(struct namect *pst);
 
+struct Family {
+    char *fname;
+    char *lname;
+    int *age;
+};
+
+bool siblings(struct Family const *f1, struct Family const *f2);
+
+struct Founds {
+    char bank_name[50];
+    double bank_founds;
+    char save[50];
+    double save_founds;
+};
+
+double sum(struct Founds const *fou);
 
 void cus() {
     /// array :
@@ -156,8 +182,27 @@ void cus() {
     /// passing struct to method
     struct namect one;
     get_info(&one);
+//    printf("\nname : %s", one.fname); // fname been released
+
+
+    struct Family f1, f2;
+    int agef1 = 34;
+    f1.fname = "f1name";
+    f1.age = &agef1;
+    f2.fname = "f1name";
+    printf("\nis they siblings : %s", siblings(&f1, &f2) == 1 ? "yes" : "no");
+
+    struct Founds sam_fisher;
+    sam_fisher.bank_founds = 20.5;
+    sam_fisher.save_founds = 10.3;
+    printf("\nsam money in total : $%.2f", sum(&sam_fisher));
+
+    struct Item item_1;
+    readItem(&item_1);
+
 }
 
+/// always better practice to pass to function the pointer then value it self ! ///
 void get_info(struct namect *pst) {
 
     char temp[50];
@@ -179,6 +224,39 @@ void get_info(struct namect *pst) {
     free(pst->lname);
 
 }
+
+bool siblings(struct Family const *f1, struct Family const *f2) {
+    // protect assignment thru the pointer
+    if (strcmp(f1->fname, f2->fname) == 0) {
+        return true;
+    }
+    return false;
+}
+
+double sum(struct Founds const *fou) {
+    return (fou->save_founds + fou->bank_founds);
+}
+
+int readItem(struct Item *item) {
+    item->item_name = (char *) malloc(25 * sizeof(char));
+    if (item->item_name != NULL) {
+        printf("\nenter item name : ");
+        scanf(" %[^\n]", item->item_name);
+    } else {
+        printf("memory not allocated for name ! ");
+        exit(-1);
+    }
+
+    printf("enter quantity and price :");
+    scanf(" %d %f", &item->quantity, &item->price);
+
+    item->amount = (float) item->quantity * item->price;
+    printf("\nitem name: %s , amount: %.2f", item->item_name, item->amount);
+
+
+    free(item->item_name); //
+    return 0;
+};
 
 void main_strunc() {
     printf("main struct : \n");
